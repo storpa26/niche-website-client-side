@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Container, Form, Button, Spinner, Alert } from 'react-bootstrap';
-import { NavLink, useHistory } from 'react-router-dom';
+import { Container, Form, Button, Spinner } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 
 const AddProduct = () => {

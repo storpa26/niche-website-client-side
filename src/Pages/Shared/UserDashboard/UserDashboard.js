@@ -15,6 +15,9 @@ const UserDashboard = () => {
                         <NavLink className="nav-items" to="/addproduct" style={isActive => ({
                             color: isActive ? "green" : "blue"
                         })}>Add Product</NavLink>
+                        <NavLink className="nav-items" to="/manageallorders" style={isActive => ({
+                            color: isActive ? "green" : "blue"
+                        })}>Manage All Orders</NavLink>
                     </div>}
                     <NavLink className="nav-items" to="/myorders" style={isActive => ({
                         color: isActive ? "green" : "blue"
