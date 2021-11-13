@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Spinner, Alert } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const [loginData, setLoginData] = useState([]);
+    const history = useHistory();
     const { registerUser, isLoading, user, authError } = useAuth();
     const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
-        console.log(newLoginData.name);
+        // console.log(newLoginData);
         setLoginData(newLoginData);
     }
 
@@ -21,11 +22,12 @@ const Register = () => {
             alert('Password did not match!');
             return;
         }
-        registerUser(loginData.email, loginData.password)
+        registerUser(loginData.email, loginData.password, loginData.name, history)
     }
     return (
         <Container>
             {!isLoading && <Form className="w-25 mx-auto" onSubmit={handleRegisterSubmit}>
+
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Your Name</Form.Label>
                     <Form.Control name="name" onBlur={handleOnBlur} type="text" placeholder="Enter your name..." />

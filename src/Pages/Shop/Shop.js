@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-
-
-const Cars = () => {
+import { Card, Col, Container, Row, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+const Shop = () => {
     const [cars, setCars] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/cars')
@@ -24,14 +23,20 @@ const Cars = () => {
                                         This is a longer card with supporting text below as a natural
                                         lead-in to additional content. This content is a little bit longer.
                                     </Card.Text>
+
+                                    <Link to={`/shop/${car._id}`}>
+                                        <Button variant="success">Buy Now</Button>
+                                    </Link>
+
                                 </Card.Body>
                             </Card>
                         </Col>
                     )
                 })}
             </Row>
+
         </Container>
     );
 };
 
-export default Cars;
+export default Shop;

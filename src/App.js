@@ -12,6 +12,9 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import Shop from './Pages/Shop/Shop';
+import OrderPage from './Pages/OrderPage/OrderPage';
+import MyOrders from './Pages/Shared/MyOrders/MyOrders';
 function App() {
   return (
     <AuthProvider>
@@ -30,6 +33,7 @@ function App() {
           </Route>
           <Route exact path="/shop">
             <Header></Header>
+            <Shop></Shop>
             <Footer></Footer>
 
           </Route>
@@ -52,6 +56,18 @@ function App() {
           <Route exact path="/register">
             <Header></Header>
             <Register></Register>
+            <Footer></Footer>
+
+          </Route>
+          <Route exact path="/shop/:carId">
+            <Header></Header>
+            <OrderPage></OrderPage>
+            <Footer></Footer>
+
+          </Route>
+          <Route exact path="/myorders">
+            <Header></Header>
+            <MyOrders></MyOrders>
             <Footer></Footer>
 
           </Route>
