@@ -15,6 +15,8 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Shop from './Pages/Shop/Shop';
 import OrderPage from './Pages/OrderPage/OrderPage';
 import MyOrders from './Pages/Shared/MyOrders/MyOrders';
+import UserDashboard from './Pages/Shared/UserDashboard/UserDashboard';
+import MakeAdmin from './Pages/Admin/MakeAdmin/MakeAdmin';
 function App() {
   return (
     <AuthProvider>
@@ -69,8 +71,15 @@ function App() {
             <Header></Header>
             <MyOrders></MyOrders>
             <Footer></Footer>
-
           </Route>
+
+          {/* Admin Routes */}
+          <Route exact path="/addadmin">
+            <Header></Header>
+            <MakeAdmin></MakeAdmin>
+            <Footer></Footer>
+          </Route>
+
         </Switch>
 
       </Router>

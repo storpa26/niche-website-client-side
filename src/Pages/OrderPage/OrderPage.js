@@ -11,7 +11,7 @@ const OrderPage = () => {
     const [singleItem, setSingleItem] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cars/${carId}`)
+        fetch(`https://still-tor-45377.herokuapp.com/cars/${carId}`)
             .then(res => res.json())
             .then(data => setSingleItem(data))
     }, [carId])
@@ -31,7 +31,7 @@ const OrderPage = () => {
             email: user.email
         }
         console.log(orderInfo);
-        axios.post('http://localhost:5000/orders', orderInfo)
+        axios.post('https://still-tor-45377.herokuapp.com/orders', orderInfo)
             .then(res => {
                 // console.log(res);
             })

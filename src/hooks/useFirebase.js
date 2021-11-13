@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import initializeFirebase from "../Pages/Login/Firebase/firebase.init";
 import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import axios from "axios";
 
 
 initializeFirebase();
@@ -9,6 +10,8 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
+    const [admin, setAdmin] = useState(false);
+
     const auth = getAuth();
     const registerUser = (email, password, name, history) => {
         setIsLoading(true);
@@ -50,6 +53,11 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
 
     }
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user?.email])
 
     useEffect(() => {
         const auth = getAuth();
@@ -66,7 +74,9 @@ const useFirebase = () => {
     }, [])
 
     const saveUser = (email, displayName) => {
-
+        const user = { email, displayName };
+        axios.post('http://localhost:5000/users', user)
+            .then()
     }
 
     const logout = () => {
@@ -83,6 +93,7 @@ const useFirebase = () => {
 
     return {
         user,
+        admin,
         isLoading,
         registerUser,
         logout,

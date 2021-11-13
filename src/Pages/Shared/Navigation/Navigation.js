@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import UserDashboard from '../UserDashboard/UserDashboard';
 import "./Navigation.css"
 const Navigation = () => {
 
@@ -14,6 +15,10 @@ const Navigation = () => {
                     <Navbar.Brand href="#">Lancelot</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
+
+                        <UserDashboard></UserDashboard>
+
+
                         <Nav
                             className="me-auto my-2 my-lg-0"
                             style={{ maxHeight: '100px' }}

@@ -5,7 +5,7 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 const Cars = () => {
     const [cars, setCars] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/cars')
+        fetch('https://still-tor-45377.herokuapp.com/cars')
             .then(res => res.json())
             .then(data => setCars(data))
 
