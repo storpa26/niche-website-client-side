@@ -29,6 +29,7 @@ const MyOrders = () => {
 
     return (
         <Container>
+            <h1 className="fw-bold text-center my-5">Your Orders</h1>
             {
                 isLoading ? <div className="d-flex justify-content-center "> <Spinner animation="border" role="status">
                     <span className="visually-hidden">Loading...</span>

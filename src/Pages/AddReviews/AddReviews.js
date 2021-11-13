@@ -10,6 +10,7 @@ const AddReviews = () => {
     const onSubmit = data => {
         axios.post('https://still-tor-45377.herokuapp.com/reviews', data)
             .then(res => {
+                alert('Review posted successfully!')
                 console.log(res);
             })
     };

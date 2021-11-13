@@ -6,6 +6,7 @@ const HomeCars = () => {
         <div>
             <h1 className="fw-bold text-center mt-5 mb-4">Available</h1>
             <Cars></Cars>
+
         </div>
     );
 };

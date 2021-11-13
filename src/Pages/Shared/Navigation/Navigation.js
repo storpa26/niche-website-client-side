@@ -38,11 +38,6 @@ const Navigation = () => {
                             })}>
                                 Reviews
                             </NavLink>
-                            <NavLink className="nav-items" to="/contact" style={isActive => ({
-                                color: isActive ? "green" : "blue"
-                            })}>
-                                Contact
-                            </NavLink>
                             <NavLink className="nav-items" to="/about" style={isActive => ({
                                 color: isActive ? "green" : "blue"
                             })}>About Us</NavLink>

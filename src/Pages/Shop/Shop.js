@@ -11,6 +11,7 @@ const Shop = () => {
     }, [])
     return (
         <Container>
+            <h1 className="fw-bold text-center my-5">Available Cars</h1>
             <Row xs={1} md={3} className="g-4">
                 {cars.map(car => {
                     return (

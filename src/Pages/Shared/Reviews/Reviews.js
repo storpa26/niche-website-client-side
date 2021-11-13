@@ -14,7 +14,7 @@ const Reviews = () => {
     return (
         <Container>
             <h2 className="fw-bold text-center my-5"> Client Reviews</h2>
-            <Row xs={1} md={3} className="g-4 my-5">
+            <Row xs={1} md={3} className="g-4 my-3">
                 {reviews.map(review => {
                     return (
                         <Col key={review._id}>
