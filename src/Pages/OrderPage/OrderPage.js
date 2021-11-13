@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Form, Row, Button } from 'react-bootstrap';
+import { Col, Container, Form, Row, Button, Card } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
@@ -32,8 +32,8 @@ const OrderPage = () => {
         }
         console.log(orderInfo);
         axios.post('https://still-tor-45377.herokuapp.com/orders', orderInfo)
-            .then(res => {
-                // console.log(res);
+            .then(data => {
+                alert('Car ordered successfully!')
             })
     }
 
@@ -44,16 +44,30 @@ const OrderPage = () => {
         newInfo[field] = value;
         setOrder(newInfo);
     }
-    console.log(order);
 
     return (
         <Container>
             <Row>
                 <Col className="mx-auto" xs={12} md={6}>
-                    <img src={singleItem.imgURL} alt={singleItem.model} />
-                    <p>Lorem</p>
+
+                    <Card className="my-5">
+                        <img className="img-fluid" src={singleItem.imgURL} alt={singleItem.model} />
+                        <Card.Body>
+                            <Card.Title className="fs-3 fw-bold">{singleItem?.model}</Card.Title>
+                            <Card.Text>
+                                <span className="fw-bold">Description:</span>  {singleItem?.description}
+                            </Card.Text>
+                            <Card.Text>
+                                <span className="fw-bold">Seat:</span>  {singleItem?.seat}
+                            </Card.Text>
+                            <Card.Text>
+                                <span className="fw-bold">Price:</span>  ${singleItem?.price}
+                            </Card.Text>
+                        </Card.Body>
+
+                    </Card>
                 </Col>
-                <Col className="mx-auto" xs={12} md={6}>
+                <Col className="mx-auto my-5" xs={12} md={6}>
                     <Col className="mx-auto" lg={6} xs={12}>
                         <Form onSubmit={handleOrderSubmit}>
                             <Row className="mb-3">

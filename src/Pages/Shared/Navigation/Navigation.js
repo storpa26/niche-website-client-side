@@ -27,9 +27,7 @@ const Navigation = () => {
                             <NavLink className="nav-items" to="/home" style={isActive => ({
                                 color: isActive ? "green" : "blue"
                             })}>Home</NavLink>
-                            <NavLink className="nav-items" to="/inventory" style={isActive => ({
-                                color: isActive ? "green" : "blue"
-                            })}>Inventory</NavLink>
+
                             <NavLink className="nav-items" to="/shop" style={isActive => ({
                                 color: isActive ? "green" : "blue"
                             })}>
@@ -45,12 +43,15 @@ const Navigation = () => {
                             })}>
                                 Contact
                             </NavLink>
+                            <NavLink className="nav-items" to="/about" style={isActive => ({
+                                color: isActive ? "green" : "blue"
+                            })}>About Us</NavLink>
                         </Nav>
                         <div>
                             {
                                 user?.email ?
 
-                                    <Button onClick={logout} className="mx-3" variant="outline-success">Logout</Button>
+                                    <Button onClick={logout} className="mx-3" variant="outline-danger">Logout</Button>
 
 
                                     :

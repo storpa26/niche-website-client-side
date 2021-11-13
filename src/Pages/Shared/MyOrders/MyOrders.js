@@ -12,10 +12,19 @@ const MyOrders = () => {
     }, [user.email])
 
     const handleDeleteOrder = id => {
+
+        window.confirm('Are you sure you want to cancel this order?');
         fetch(`https://still-tor-45377.herokuapp.com/orders/${id}`, {
             method: 'DELETE'
         })
-            .then()
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    alert('Deleted Successfully!');
+                    const remaining = orders.filter(order => order._id !== id)
+                    setOrders(remaining)
+                }
+            })
     }
 
     return (

@@ -17,6 +17,11 @@ import OrderPage from './Pages/OrderPage/OrderPage';
 import MyOrders from './Pages/Shared/MyOrders/MyOrders';
 import MakeAdmin from './Pages/Admin/MakeAdmin/MakeAdmin';
 import Reviews from './Pages/Shared/Reviews/Reviews';
+import Payment from './Pages/Payment/Payment';
+import AddReviews from './Pages/AddReviews/AddReviews';
+import About from './Pages/About/About';
+import AddProduct from './Pages/Admin/AddProduct/AddProduct';
+import ManageAllOrders from './Pages/Admin/ManageAllOrders/ManageAllOrders';
 function App() {
   return (
     <AuthProvider>
@@ -40,12 +45,35 @@ function App() {
 
           </Route>
 
-          <PrivateRoute exact path="/reviews">
+          <Route exact path="/reviews">
             <Header></Header>
             <Reviews></Reviews>
             <Footer></Footer>
+          </Route>
+          <Route exact path="/about">
+            <Header></Header>
+            <About></About>
+            <Footer></Footer>
+          </Route>
 
+          <PrivateRoute exact path="/addreviews">
+            <Header></Header>
+            <AddReviews></AddReviews>
+            <Footer></Footer>
           </PrivateRoute>
+
+          <PrivateRoute exact path="/manageallorders">
+            <Header></Header>
+            <ManageAllOrders></ManageAllOrders>
+            <Footer></Footer>
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/addproduct">
+            <Header></Header>
+            <AddProduct></AddProduct>
+            <Footer></Footer>
+          </PrivateRoute>
+
           <Route exact path="/login">
             <Header></Header>
             <Login></Login>
@@ -58,24 +86,29 @@ function App() {
             <Footer></Footer>
 
           </Route>
-          <Route exact path="/shop/:carId">
+          <PrivateRoute exact path="/shop/:carId">
             <Header></Header>
             <OrderPage></OrderPage>
             <Footer></Footer>
 
-          </Route>
-          <Route exact path="/myorders">
+          </PrivateRoute>
+          <PrivateRoute exact path="/myorders">
             <Header></Header>
             <MyOrders></MyOrders>
             <Footer></Footer>
-          </Route>
+          </PrivateRoute>
 
           {/* Admin Routes */}
-          <Route exact path="/addadmin">
+          <PrivateRoute exact path="/addadmin">
             <Header></Header>
             <MakeAdmin></MakeAdmin>
             <Footer></Footer>
-          </Route>
+          </PrivateRoute>
+          <PrivateRoute exact path="/payment">
+            <Header></Header>
+            <Payment></Payment>
+            <Footer></Footer>
+          </PrivateRoute>
 
         </Switch>
 
