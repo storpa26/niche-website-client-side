@@ -15,8 +15,8 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Shop from './Pages/Shop/Shop';
 import OrderPage from './Pages/OrderPage/OrderPage';
 import MyOrders from './Pages/Shared/MyOrders/MyOrders';
-import UserDashboard from './Pages/Shared/UserDashboard/UserDashboard';
 import MakeAdmin from './Pages/Admin/MakeAdmin/MakeAdmin';
+import Reviews from './Pages/Shared/Reviews/Reviews';
 function App() {
   return (
     <AuthProvider>
@@ -39,13 +39,10 @@ function App() {
             <Footer></Footer>
 
           </Route>
-          <Route exact path="/inventory">
-            <Header></Header>
-            <Footer></Footer>
 
-          </Route>
           <PrivateRoute exact path="/reviews">
             <Header></Header>
+            <Reviews></Reviews>
             <Footer></Footer>
 
           </PrivateRoute>
