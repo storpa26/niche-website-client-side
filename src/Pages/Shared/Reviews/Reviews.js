@@ -9,7 +9,7 @@ const Reviews = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         setReviews(data);
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://still-tor-45377.herokuapp.com/reviews', data)
             .then(res => {
                 console.log(res);
             })
