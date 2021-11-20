@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Container, Spinner, Table } from 'react-bootstrap';
+import { Container, Spinner, Table, Button } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 
 const ManageAllOrders = () => {
@@ -10,6 +11,24 @@ const ManageAllOrders = () => {
             .then(res => res.json())
             .then(data => setAllOrders(data))
     }, [])
+
+
+
+    const handleStatusChange = (id) => {
+        let modifiedOrders = [];
+        allOrders.forEach(order => {
+            if (order._id === id) {
+                order.status = 'Approved';
+            }
+            modifiedOrders.push(order)
+        })
+        setAllOrders(modifiedOrders);
+
+        const modifiedStatus = { id }
+
+        axios.patch('http://localhost:5000/updateOrderStatus', modifiedStatus)
+    }
+
     return (
         <Container>
             <h1 className="fw-bold text-center my-5">Orders Places By All The Users</h1>
@@ -25,6 +44,7 @@ const ManageAllOrders = () => {
                                 <th>Car Model</th>
                                 <th>Shipping Address</th>
                                 <th>Status</th>
+                                <th>Action</th>
 
                             </tr>
                         </thead>
@@ -38,6 +58,7 @@ const ManageAllOrders = () => {
                                             <td>{order.model}</td>
                                             <td>{order.address}</td>
                                             <td>{order.status}</td>
+                                            <td> <Button onClick={() => handleStatusChange(order._id)} variant="danger">Update</Button> </td>
                                         </tr>
                                     </tbody>
                                 )

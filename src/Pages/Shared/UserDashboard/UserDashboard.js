@@ -3,7 +3,7 @@ import { DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 const UserDashboard = () => {
-    const { admin, logout } = useAuth();
+    const { admin, logout, user } = useAuth();
     return (
         <>
             <DropdownButton id="dropdown-item-button" title="Dashboard">
@@ -30,7 +30,10 @@ const UserDashboard = () => {
                     <NavLink className="nav-items my-2" to="/payment" style={isActive => ({
                         color: isActive ? "green" : "blue"
                     })}>Pay</NavLink>
-                    <Button onClick={logout} className="mx-3 my-2" variant="outline-danger">Logout</Button>
+                    {
+                        user?.email && <Button onClick={logout} className="mx-3 my-2" variant="outline-danger">Logout</Button>
+                    }
+
                 </div>
             </DropdownButton>
         </>
